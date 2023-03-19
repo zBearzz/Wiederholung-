@@ -18,7 +18,7 @@ namespace Alles_wiederholen
 
         OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Bestellungen_DB.mdb");
         OleDbCommand cmd = new OleDbCommand();
-        cmd.CommandText = "select * from Mitarbeiter where Vorname='"+ txt_box_vorname.Text +"' and Nachname='"+ txt_box_nachname.Text +"' and Kennwort='"+ txt_box_kennwort.Text +"';";
+        
 
         public Form1()
         {
@@ -31,6 +31,7 @@ namespace Alles_wiederholen
             
             con.Open();
             cmd.Connection = con;
+            cmd.CommandText = "select * from Mitarbeiter where Vorname='" + txt_box_vorname.Text + "' and Nachname='" + txt_box_nachname.Text + "' and Kennwort='" + txt_box_kennwort.Text + "';";
             OleDbDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
